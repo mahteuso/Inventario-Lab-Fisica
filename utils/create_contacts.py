@@ -17,14 +17,14 @@ settings.USE_TZ = False
 django.setup()
 
 if __name__ == '__main__':
-    import faker
+    from faker import Faker
 
     from contact.models import Category, Contact
 
     Contact.objects.all().delete()
     Category.objects.all().delete()
 
-    fake = faker.Faker('pt_BR')
+    fake = Faker('pt_BR')
     categories = ['Amigos', 'Família', 'Conhecidos']
 
     django_categories = [Category(name=name) for name in categories]
