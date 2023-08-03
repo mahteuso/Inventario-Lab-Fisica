@@ -8,7 +8,7 @@ import django
 from django.conf import settings
 
 DJANGO_BASE_DIR = Path(__file__).parent.parent
-NUMBER_OF_OBJECTS = 1000
+NUMBER_OF_OBJECTS = 100
 
 sys.path.append(str(DJANGO_BASE_DIR))
 os.environ['DJANGO_SETTINGS_MODULE'] = 'project.settings'
@@ -25,7 +25,7 @@ if __name__ == '__main__':
     Category.objects.all().delete()
 
     fake = Faker('pt_BR')
-    categories = ['Amigos', 'Família', 'Conhecidos']
+    categories = ['Consumo', 'Permanente']
 
     django_categories = [Category(name=name) for name in categories]
 
@@ -36,19 +36,17 @@ if __name__ == '__main__':
 
     for _ in range(NUMBER_OF_OBJECTS):
         profile = fake.profile()
-        email = profile['mail']
-        first_name, last_name = profile['name'].split(' ', 1)
-        phone = fake.phone_number()
+        name, lab_used = profile['name'].split(' ', 1)
+        quantidade = fake.month()
         created_date: datetime = fake.date_this_year()
         description = fake.text(max_nb_chars=100)
         category = choice(django_categories)
 
         django_contacts.append(
             Contact(
-                first_name=first_name,
-                last_name=last_name,
-                phone=phone,
-                email=email,
+                name=name,
+                quantidade=quantidade,
+                lab_used=lab_used,
                 created_date=created_date,
                 description=description,
                 category=category,
