@@ -15,3 +15,15 @@ def index(request):
         'global/index.html',
         context
         )
+def equipamento(request, contact_id):
+    single_contact = Contact.objects.get(pk=contact_id)
+
+    context = {
+        'contact': single_contact
+    }
+    return render(
+        request, 
+        'global/equipamento.html',
+        context
+        )
+    

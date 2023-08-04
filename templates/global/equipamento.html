@@ -1,1 +1,37 @@
-{% include '.html' %}
+{% include 'partials/header.html' %}
+{% load static %}
+<main class="content">
+{% block content %}
+    <div class="respomsive-table">
+        <div class="single-contact">
+            <table class="contacts-table">
+                <caption class="table-caption">
+            <tr class="table-row table-row-header">
+                <td class="table-cel">
+                <h1 class="single-contact-name">
+                    <a class="table-link" href="{% url 'index'%}">
+                        <p class="table-cell"><b> >>>> Retornar à página inicial <<<< </b></p>
+                    </a>
+                </h1>
+                </td>
+            </tr>
+            </caption>
+            </table>
+            <h1 class="single-contact-name">
+            {{ contact.name }} 
+            </h1>    
+            {%  if contact.picture == "" or contact.picture == null %}
+                <img src="{% static 'imagens/not-found.jpeg'%}" >
+            {% else %}
+                <img src="{{contact.picture.url}}" >
+            {% endif %}
+            <p><b>ID: </b>{{ contact.id }}</p>
+            <p><b>Patrimômio: </b>{{ contact.patrimonio }}</p>
+            <p><b>Quantidade: </b>{{ contact.quantidade }}</p>
+            <p><b>Laboratório: </b>{{ contact.lab_used }}</p>
+            <p><b>Categoria: </b>{{ contact.category}}</p>
+            <p><b>Descrição: </b>{{ contact.description }}</p>
+        </div> 
+     </div>  
+{% endblock content %} 
+</main>
