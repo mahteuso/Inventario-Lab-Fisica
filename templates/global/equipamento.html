@@ -2,17 +2,17 @@
 {% include 'partials/header.html' %}
 {% include 'partials/_nav.html' %}
 <main class="content">
-{% block content %}
+    {% block content %}
     <div class="respomsive-table">
         <div class="single-contact">
-           
+
             <h1 class="single-contact-name">
-            {{ contact.name }} 
-            </h1>    
-            {%  if contact.picture == "" or contact.picture == null %}
-                <img src="{% static '/imagens/not-found.jpeg'%}" alt="Imagem">
+                {{ contact.name }}
+            </h1>
+            {% if contact.picture == "" or contact.picture == null %}
+            <img src="{% static '/imagens/not-found.jpeg'%}" alt="Imagem">
             {% else %}
-                <img src="{{contact.picture.url}}" height="200" width="200">
+            <img src="{{contact.picture.url}}" height="200" width="200">
             {% endif %}
             <p><b>ID: </b>{{ contact.id }}</p>
             <p><b>Patrimômio: </b>{{ contact.patrimonio }}</p>
@@ -20,8 +20,8 @@
             <p><b>Laboratório: </b>{{ contact.lab_used }}</p>
             <p><b>Categoria: </b>{{ contact.category}}</p>
             <p><b>Descrição: </b>{{ contact.description }}</p>
-        </div> 
-     </div>  
-{% endblock content %} 
+        </div>
+    </div>
+    {% endblock content %}
 
 </main>

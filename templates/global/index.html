@@ -1,61 +1,62 @@
 {% include 'partials/header.html' %}
 {% include 'partials/_nav.html' %}
-    <main class="content">
+<main class="content">
     {% block content %}
-        <div class="respomsive-table">
-            <table class="contacts-table">
-                <caption class="table-caption">
-                    Equipamentos
-                </caption>
-                   
-                <thead>
-                    <tr class="table-row table-row-header">
-                        <th class="table-header">ID</th>
-                        <th class="table-header">Nome do equipamento</th>
-                        <th class="table-header">Quantidade</th>
-                        <th class="table-header">Disciplina</th>
-                        <th class="table-header">Patrimonio</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for contact in page_obj %}
-                        <tr class="table-row">
-                            <td class="table-cel">
-                               <a href="#" class="table-link">
-                                {{contact.id}}
-                               </a>
+    <div class="respomsive-table">
+        <table class="contacts-table">
+            <caption class="table-caption">
+                Equipamentos
+            </caption>
 
-                            </td>
-                            <td class="table-cel">
-                                <a href="{% url 'equipamento' contact.id %}" class="table-link">
-                                    {{contact.name}}
-                                </a>
-                            </td>
-                            <td class="table-cel">
-                                <a href="#" class="table-link">
-                                    {{contact.quantidade}}
-                                   </a>
-                            </td>
-                            <td class="table-cel">
-                                <a href="#" class="table-link">
-                                    {{contact.lab_used}}
-                                   </a>
-                            </td>
-                            <td class="table-cel">
-                                <a href="#" class="table-link">
-                                    {{contact.patrimonio}}
-                                   </a>
-                            </td>
-                           
-                        </tr>
-                     {% endfor %}
-               
-                </tbody>
-            </table>
-        </div>
+            <thead>
+                <tr class="table-row table-row-header">
+                    <th class="table-header">ID</th>
+                    <th class="table-header">Nome do equipamento</th>
+                    <th class="table-header">Quantidade</th>
+                    <th class="table-header">Disciplina</th>
+                    <th class="table-header">Patrimonio</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for contact in page_obj %}
+                <tr class="table-row">
+                    <td class="table-cel">
+                        <a href="#" class="table-link">
+                            {{contact.id}}
+                        </a>
+
+                    </td>
+                    <td class="table-cel">
+                        <a href="{% url 'equipamento' contact.id %}" class="table-link">
+                            {{contact.name}}
+                        </a>
+                    </td>
+                    <td class="table-cel">
+                        <a href="#" class="table-link">
+                            {{contact.quantidade}}
+                        </a>
+                    </td>
+                    <td class="table-cel">
+                        <a href="#" class="table-link">
+                            {{contact.lab_used}}
+                        </a>
+                    </td>
+                    <td class="table-cel">
+                        <a href="#" class="table-link">
+                            {{contact.patrimonio}}
+                        </a>
+                    </td>
+
+                </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
     {% endblock content %}
     {% include 'partials/_paginator.html' %}
-    </main>
-   
+</main>
+
 </body>
+
 </html>

@@ -4,7 +4,7 @@
 <header class="header">
     <h1 class="header-heading">
         <a href="{% url 'index' %}" class="header-link">
-        Laboratório de física
+            Laboratório de física
         </a>
     </h1>
     <nav class="menu">
@@ -19,17 +19,12 @@
                     Registrar-se
                 </a>
             </li>
-        </ul>           
+        </ul>
     </nav>
 
     <div class="search">
         <form action="{% url 'search' %}" method="GET">
-            <input type="search" 
-            class="search-input"
-            placeholder="Pesquisar"
-            id="Pesquisa"
-            name="q"
-            >
+            <input type="search" class="search-input" placeholder="Pesquisar" id="Pesquisa" name="q">
         </form>
     </div>
 </header>
