@@ -3,5 +3,11 @@ from contact.views import *
 
 urlpatterns = [
     path('', contact_views.index, name='index'),
-    path('<int:contact_id>/', contact_views.equipamento, name='equipamento'),
+    path('searc/', contact_views.search, name='search'),
+
+    # equipaments (CRUD)
+    path('equipament/create/', contact_views.equipamento, name='equipamento'),
+    path('equipament/<int:contact_id>/detail/', contact_views.equipamento, name='equipamento'),
+    path('equipament/<int:contact_id>/update/', contact_views.equipamento, name='equipamento'),
+    path('equipament/<int:contact_id>/delete/', contact_views.equipamento, name='equipamento'),
 ]
