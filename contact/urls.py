@@ -1,13 +1,13 @@
 from django.urls import path
 from contact.views import *
 
+
 urlpatterns = [
     path('', contact_views.index, name='index'),
     path('searc/', contact_views.search, name='search'),
 
     # equipaments (CRUD)
-    path('equipament/create/', contact_views.equipamento, name='equipamento'),
+    path('equipament/create/', create_views.create, name='create'),
     path('equipament/<int:contact_id>/detail/', contact_views.equipamento, name='equipamento'),
-    path('equipament/<int:contact_id>/update/', contact_views.equipamento, name='equipamento'),
-    path('equipament/<int:contact_id>/delete/', contact_views.equipamento, name='equipamento'),
+   
 ]

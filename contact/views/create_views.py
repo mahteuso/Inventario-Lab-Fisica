@@ -5,12 +5,9 @@ from django.core.paginator import Paginator
 
 
 def create(request):
-    contacts = Contact.objects\
-        .filter(show=True)\
-            .order_by('-id')
 
     context = {
-        'contact': contacts
+      
     }
     return render(
         request, 
