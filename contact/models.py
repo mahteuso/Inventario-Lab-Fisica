@@ -23,9 +23,9 @@ class Category(models.Model):
         return self.name
 
 class Contact(models.Model):
-    name = models.CharField(max_length=100, null=False) 
+    nome = models.CharField(max_length=100, null=False) 
     quantidade = models.IntegerField(null=False)
-    lab_used = models.CharField(max_length=100, null=False)
+    lab_usado = models.CharField(max_length=100, null=False)
     patrimonio = models.IntegerField(null=True)  
     created_date = models.DateTimeField(default=timezone.now)
     description = models.TextField(blank=True)
@@ -44,4 +44,4 @@ class Contact(models.Model):
 
 
     def __str__(self) -> str:
-        return f'{self.name}'
+        return f'{self.nome}'
