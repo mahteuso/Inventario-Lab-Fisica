@@ -28,10 +28,10 @@ class Contact(models.Model):
     lab_usado = models.CharField(max_length=100, null=False)
     patrimonio = models.IntegerField(null=True)  
     created_date = models.DateTimeField(default=timezone.now)
-    description = models.TextField(blank=True)
+    descricao = models.TextField(blank=True)
     show = models.BooleanField(default=True)
     picture = models.ImageField(upload_to='pictures/%Y/%m/', blank=True)
-    category = models.ForeignKey(
+    categoria = models.ForeignKey(
         Category, 
         on_delete=models.SET_NULL, 
         blank=True, null=True

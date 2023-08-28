@@ -17,15 +17,6 @@ class ContactForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
 
 
-        # self.fields['nome'].widget.attrs.update({
-        #     'placeholder': "Nome do equipamento",
-        #     }
-        # )
-
-        # self.nome = forms.CharField(
-        #     help_text = "Coloque o nome completo do equipamento e marca",
-        # )
-
         self.fields['lab_usado'].widget.attrs.update({
             'placeholder': "Nome da disciplina",
         })
@@ -38,7 +29,7 @@ class ContactForm(forms.ModelForm):
     class Meta:
         model = Contact
         fields = (
-            'nome', 'lab_usado','patrimonio',
+            'nome', 'lab_usado','patrimonio', 'categoria', 'descricao',
         )
         # widgets = {
         #     'nome': forms.TextInput(
@@ -73,7 +64,7 @@ class ContactForm(forms.ModelForm):
     def clean_nome(self):
         nome = self.cleaned_data.get('nome')
 
-        if any(char.isdigit() for char in nome):
+        if nome == '' or nome == None:
             self.add_error(
                 'nome',
                 ValidationError(

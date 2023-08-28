@@ -32,8 +32,8 @@ def search (request):
 
     contacts = Contact.objects\
         .filter(show=True)\
-        .filter(Q(name__icontains=search_value) |
-                Q(lab_used__icontains=search_value) | 
+        .filter(Q(nome__icontains=search_value) |
+                Q(lab_usado__icontains=search_value) | 
                 Q(patrimonio__icontains=search_value))\
             .order_by('-id')
     
@@ -50,11 +50,12 @@ def search (request):
         context
         )
    
+   
 def equipamento(request, contact_id):
 
 
     single_contact = get_object_or_404(Contact, pk=contact_id, show=True)
-    site_title = f'{single_contact.name} - '
+    site_title = f'{single_contact.nome} - '
 
     context = {
         'contact': single_contact,
